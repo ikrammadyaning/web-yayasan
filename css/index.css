@@ -1,0 +1,475 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+}
+
+/* HEADER */
+.main-header {
+    background-color: rgb(255, 242, 242);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-header .tombol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-left: 25px;
+}
+
+.logo-group img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin-right: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 6px;
+    transition: color 0.3s ease-in-out, 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+.button a {
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    padding: 5px 12px;
+    transition: 0.2s ease-in-out;
+}
+
+.button a:hover {
+    background-color: red;
+}
+
+/* HERO SECTION */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hero-teks {
+    position: relative;
+    z-index: 3;
+    color: white;
+    padding-left: 60px;
+}
+
+.hero-teks {
+    position: relative;
+    z-index: 3;
+    color: white;
+    padding-left: 50px;
+}
+
+.hero-teks h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-teks h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.hero-teks p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
+
+.hero-teks a {
+    color: #61a0ff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.hero-teks a:hover {
+    text-decoration: underline;
+}
+
+/*entang Kami */
+.container1 {
+  background: linear-gradient(180deg, #fafafa, #f0f0f0);
+  padding: 70px 0 40px;
+  border-top: 1px solid #eaeaea;
+}
+
+.section-title1 {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  margin: 0 auto 0;
+  border-radius: 4px;
+}
+
+/* 🌼 Tombol */
+.button1 {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  border: none;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.button1 a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.button1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+}
+
+/* 🌿 Tentang 2 */
+.tentang2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  background: linear-gradient(495deg, white, rgb(211, 211, 255));
+  margin: 20px auto;
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 1100px;
+}
+
+.tentang2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.grid2 {
+  flex: 1 1 450px;
+  max-width: 550px;
+}
+
+.grid2 h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+  border-left: 6px solid #6366f1;
+  padding-left: 14px;
+}
+
+.grid2 p {
+  line-height: 1.8;
+  font-size: 17px;
+  color: #444;
+  text-align: justify;
+}
+
+.img img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Tentang 3 */
+.tentang3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  background: linear-gradient(495deg, rgb(255, 255, 198), white);
+  margin: 20px auto;
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 1100px;
+}
+
+.tentang3:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.grid3 {
+  flex: 1 1 450px;
+  max-width: 550px;
+}
+
+.grid3 h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+  border-left: 6px solid #6366f1;
+  padding-left: 14px;
+}
+
+.grid3 ul li {
+  line-height: 1.8;
+  font-size: 17px;
+  color: #444;
+  text-align: justify;
+}
+
+/* --- Responsif untuk Tablet & HP ukuran sedang (<=768px) --- */
+@media (max-width: 768px) {
+  /* kode CSS buat tablet dan HP */
+  .main-header .tombol {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0 0 20px;
+  }
+
+  .hero-container {
+    height: auto;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero-teks h1 {
+    font-size: 36px;
+  }
+
+  /* ... dan seterusnya */
+}
+
+/* --- Responsif untuk HP kecil (<=480px) --- */
+@media (max-width: 480px) {
+  .logo-group img {
+    width: 45px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .hero-teks h1 {
+    font-size: 28px;
+  }
+
+  .hero-teks h2 {
+    font-size: 18px;
+  }
+
+  .hero-teks p {
+    font-size: 15px;
+  }
+
+  .main-nav ul {
+    font-size: 14px;
+  }
+
+  .suster-card {
+    width: 95%;
+  }
+}
+
+
+/* Data SDM */
+.features-section {
+  background: linear-gradient(180deg, #fafafa, #ffffff);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  margin: 0 auto 0;
+  border-radius: 4px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.suster-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.suster-card:hover {
+  background-color: rgb(252, 252, 147);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.suster-icon {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.suster-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.suster-card h1 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #666;
+}
+
+.button2 {
+  margin-top: 40px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.button2 a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.button2:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+}
+
+/* Efek Scroll (Fade Up) */
+.fade-up {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+.main-footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #6e6e73;
+}

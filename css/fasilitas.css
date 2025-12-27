@@ -1,0 +1,99 @@
+    /* bintang untuk mereset jarak jarak yang di kasih sama si HTML */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "inter", sans-serif;
+    background-color: #f5f5f7;
+    /* color: #1d1d1f; */
+    line-height: 1.6;
+}
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ini styling header */
+
+.main-header{
+    background-color: rgb(255, 242, 242);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+    /* margin: 15px 25px; */
+    /* border bottom itu utk ngasih border untuk di bagian bawah */
+}
+
+.main-header .tombol{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-left: 0; */
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 13px; /* jarak antara logo dan teks */
+    margin-left: 25px;
+}
+
+.logo-group img {
+    width: 60px; /* bisa kamu sesuaikan */
+    height: auto;
+    border-radius: 50%; /* opsional kalau mau logo bulat */
+}
+
+.logo{
+    font-family: "arial";
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;    
+    color: #1d1d1f;
+}   
+
+.main-nav ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin-right: 30px;
+}
+
+.main-nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 6px;
+    transition: color 0.3s ease-in-out, 0.2s ease-in-out;
+    align-items: center;
+}
+
+.main-nav a:hover{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+.button a{
+    background-color: black;
+    border-radius: 20px;
+    height: 25px;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.button a:hover{
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+}
