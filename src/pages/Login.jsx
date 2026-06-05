@@ -100,18 +100,18 @@ export default function Login() {
       'accounts',
       JSON.stringify([
         {
-          username: 'Mimih',
-          password: 'Mimih123'
+          username: 'mimih',
+          password: 'mimih123'
         },
         {
-          username: 'Rudi',
-          password: 'Rudi123'
+          username: 'rudi',
+          password: 'rudi123'
         },
-        { username: 'Staff',
-          password: 'Staff123'
+        { username: 'staff',
+          password: 'staff123'
         },
-        { username: 'Ikram',
-          password: 'Ikram123'
+        { username: 'ikram',
+          password: 'ikram123'
         }
       ])
     );
