@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiMenu, HiX } from 'react-icons/hi';
 import styles from './Navbar.module.css';
 
@@ -15,6 +15,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const username = localStorage.getItem('username') || '';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,6 +33,12 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    navigate('/login');
+  };
 
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
@@ -55,6 +64,12 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <span className={styles.welcome}>
+            Welcome, {username}
+          </span>
+          <button className={styles.logoutBtn} onClick={handleLogout}>
+            Logout
+          </button>
           <Link to="/kontak" className={styles.menuCta}>
             Hubungi Kami
           </Link>

@@ -1,19 +1,30 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import AppRouter from './router/AppRouter';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/variables.css';
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
-      <Navbar />
+      {!isAuthPage && <Navbar />}
       <main>
         <AppRouter />
       </main>
-      <Footer />
+      {!isAuthPage && <Footer />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

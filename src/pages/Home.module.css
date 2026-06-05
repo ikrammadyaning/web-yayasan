@@ -1,3 +1,17 @@
+.welcomeBar {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--color-dark-green), var(--color-medium-green));
+  color: var(--color-white);
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.welcomeBar strong {
+  font-weight: 700;
+}
+
 .services {
   background: var(--color-white);
 }

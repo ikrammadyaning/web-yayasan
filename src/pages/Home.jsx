@@ -8,8 +8,13 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 
 export default function Home() {
+  const username = localStorage.getItem('username') || 'User';
+
   return (
     <>
+      <div className={styles.welcomeBar}>
+        Welcome, <strong>{username}</strong>
+      </div>
       <Hero />
 
       {/* --- Layanan --- */}

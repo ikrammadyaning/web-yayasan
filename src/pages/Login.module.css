@@ -1,0 +1,498 @@
+@keyframes auroraMove {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(2%, -1%) scale(1.02); }
+  66% { transform: translate(-1%, 2%) scale(0.98); }
+  100% { transform: translate(1%, -2%) scale(1.01); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.6; }
+}
+
+@keyframes cardEntry {
+  0% { opacity: 0; transform: translateY(40px) scale(0.85); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(26, 92, 58, 0.15), 0 0 60px rgba(26, 92, 58, 0.05); }
+  50% { box-shadow: 0 8px 40px rgba(26, 92, 58, 0.3), 0 0 100px rgba(26, 92, 58, 0.1); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+@keyframes rippleEffect {
+  to { transform: translate(-50%, -50%) scale(15); opacity: 0; }
+}
+
+@keyframes checkmark {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes cardExit {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-30px) scale(0.7); }
+}
+
+@keyframes bgBlur {
+  to { backdrop-filter: blur(8px); }
+}
+
+.page {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080c1a;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ─── Background Layers ─── */
+
+.aurora {
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 25%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 80% 65%, rgba(139, 92, 246, 0.1), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 45% 55%, rgba(99, 102, 241, 0.07), transparent 50%),
+    radial-gradient(ellipse 65% 50% at 70% 20%, rgba(37, 99, 235, 0.06), transparent 50%);
+  animation: auroraMove 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 80% 70% at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at center, black 30%, transparent 70%);
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.stars::before,
+.stars::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+.stars::before {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    50px 100px 0 rgba(255,255,255,0.6),
+    120px 250px 0 rgba(255,255,255,0.4),
+    230px 80px 0 rgba(255,255,255,0.7),
+    350px 200px 0 rgba(255,255,255,0.3),
+    480px 130px 0 rgba(255,255,255,0.5),
+    600px 300px 0 rgba(255,255,255,0.4),
+    720px 90px 0 rgba(255,255,255,0.6),
+    850px 220px 0 rgba(255,255,255,0.3),
+    950px 150px 0 rgba(255,255,255,0.5),
+    200px 400px 0 rgba(255,255,255,0.4),
+    400px 500px 0 rgba(255,255,255,0.3),
+    700px 450px 0 rgba(255,255,255,0.5),
+    900px 550px 0 rgba(255,255,255,0.4),
+    150px 600px 0 rgba(255,255,255,0.3),
+    550px 650px 0 rgba(255,255,255,0.4),
+    800px 700px 0 rgba(255,255,255,0.3),
+    300px 750px 0 rgba(255,255,255,0.5),
+    650px 800px 0 rgba(255,255,255,0.4),
+    100px 850px 0 rgba(255,255,255,0.3),
+    450px 900px 0 rgba(255,255,255,0.5);
+}
+
+.stars::after {
+  width: 1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  animation-duration: 5s;
+  animation-delay: 1.5s;
+  box-shadow:
+    80px 180px 0 rgba(255,255,255,0.3),
+    190px 320px 0 rgba(255,255,255,0.2),
+    300px 140px 0 rgba(255,255,255,0.4),
+    420px 280px 0 rgba(255,255,255,0.2),
+    530px 380px 0 rgba(255,255,255,0.3),
+    670px 160px 0 rgba(255,255,255,0.2),
+    780px 420px 0 rgba(255,255,255,0.4),
+    920px 280px 0 rgba(255,255,255,0.2),
+    160px 480px 0 rgba(255,255,255,0.3),
+    360px 580px 0 rgba(255,255,255,0.2),
+    620px 520px 0 rgba(255,255,255,0.3),
+    820px 620px 0 rgba(255,255,255,0.2),
+    250px 680px 0 rgba(255,255,255,0.3),
+    500px 720px 0 rgba(255,255,255,0.2),
+    750px 780px 0 rgba(255,255,255,0.3),
+    180px 880px 0 rgba(255,255,255,0.2),
+    520px 830px 0 rgba(255,255,255,0.3),
+    880px 860px 0 rgba(255,255,255,0.2);
+}
+
+.floatingCircle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
+.floatingCircle:nth-child(4) {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 70%);
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floatingCircle:nth-child(5) {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06), transparent 70%);
+  bottom: 20%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.floatingCircle:nth-child(6) {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05), transparent 70%);
+  top: 50%;
+  left: 60%;
+  animation-delay: -5s;
+}
+
+/* ─── Card ─── */
+
+.cardWrapper {
+  position: relative;
+  z-index: 10;
+  animation: cardEntry 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.cardContainer {
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.card {
+  position: relative;
+  width: 420px;
+  padding: 48px 40px 40px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 24px;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  animation: glowPulse 4s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, #1a5c3a, #c9a84c);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Typing Animation ─── */
+
+.typingContainer {
+  text-align: center;
+  height: 32px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.typingText {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  min-width: 1px;
+}
+
+.cursor {
+  font-size: 0.85rem;
+  color: rgba(201, 168, 76, 0.7);
+  font-weight: 300;
+  animation: blink 0.8s step-end infinite;
+}
+
+/* ─── Title ─── */
+
+.title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.15em;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+}
+
+/* ─── Form ─── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 16px 16px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15), 0 0 20px rgba(46, 125, 50, 0.08);
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 0 4px;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #2e7d32;
+  background: #080c1a;
+  border-radius: 4px;
+}
+
+.error {
+  display: block;
+  font-size: 0.75rem;
+  color: #e8a838;
+  margin-top: 6px;
+  padding-left: 4px;
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-top: -8px;
+}
+
+.forgotPassword a {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.25s ease;
+}
+
+.forgotPassword a:hover {
+  color: rgba(201, 168, 76, 0.7);
+}
+
+/* ─── Button ─── */
+
+.loginBtn {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #1a5c3a, #c9a84c);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+}
+
+.loginBtn:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 4px 24px rgba(26, 92, 58, 0.4), 0 0 40px rgba(26, 92, 58, 0.15);
+}
+
+.loginBtn:hover:not(:disabled)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  animation: shine 0.6s ease forwards;
+  pointer-events: none;
+}
+
+.loginBtn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.loginBtn:disabled {
+  cursor: wait;
+  opacity: 0.9;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.successIcon path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: checkmark 0.5s ease forwards;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleEffect 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ─── Register Link ─── */
+
+.registerLink {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.registerLink a {
+  color: rgba(201, 168, 76, 0.7);
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.registerLink a:hover {
+  color: rgba(201, 168, 76, 1);
+}
+
+/* ─── Exit State ─── */
+
+.cardWrapper.exit {
+  animation: cardExit 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.page.blur {
+  animation: bgBlur 0.5s ease forwards;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100vw - 32px);
+    padding: 36px 24px 32px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .page {
+    align-items: center;
+  }
+}

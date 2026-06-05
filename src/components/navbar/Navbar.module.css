@@ -104,6 +104,34 @@
   border-radius: 2px;
 }
 
+.welcome {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-dark-green);
+  background: var(--color-light-green);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.logoutBtn {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-dark-green), var(--color-medium-green));
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.logoutBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 92, 58, 0.3);
+}
+
 .menuCta {
   padding: 10px 24px;
   background: linear-gradient(135deg, var(--color-gold), #d4a843);
@@ -175,6 +203,21 @@
   .active {
     background: var(--color-light-green);
     color: var(--color-dark-green);
+  }
+
+  .welcome {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logoutBtn {
+    margin-left: 0;
+    margin-top: 4px;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
   }
 
   .menuCta {
